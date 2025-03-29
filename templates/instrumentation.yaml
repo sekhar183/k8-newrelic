@@ -3,7 +3,7 @@ apiVersion: newrelic.com/v1alpha2
 kind: Instrumentation
 metadata:
   name: newrelic-instrumentation
-  namespace: newrelic
+  namespace: k8s-newrelic
 spec:
   agent:
     # Values supported: dotnet, java, nodejs, python, ruby, php
