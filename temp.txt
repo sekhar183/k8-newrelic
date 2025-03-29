@@ -1,0 +1,5 @@
+KSM_IMAGE_VERSION="v2.13.0"
+helm repo add newrelic https://helm-charts.newrelic.com 
+helm repo update 
+kubectl create namespace newrelic 
+helm upgrade --install newrelic-bundle newrelic/nri-bundle --set global.licenseKey=eu01xxcb60346203f2952330fbe72ccdFFFFNRAL --set global.cluster=docker-desktop --namespace=newrelic --set newrelic-infrastructure.privileged=true --set global.lowDataMode=true --set kube-state-metrics.image.tag=${KSM_IMAGE_VERSION} --set kube-state-metrics.enabled=true --set kubeEvents.enabled=true --set newrelic-prometheus-agent.enabled=true --set newrelic-prometheus-agent.lowDataMode=true --set newrelic-prometheus-agent.config.kubernetes.integrations_filter.enabled=false --set k8s-agents-operator.enabled=true --set logging.enabled=true --set newrelic-logging.lowDataMode=true
